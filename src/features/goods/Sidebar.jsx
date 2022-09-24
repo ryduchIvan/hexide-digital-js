@@ -1,7 +1,7 @@
 //CSS
 import "./sidebar.scss";
 import {Link} from "react-router-dom";
-function Sidebar(params) {
+function Sidebar() {
 	return(
 		<aside className="main__filter">
 			<ul className="filter__list">

@@ -1,0 +1,11 @@
+.row__search {
+	text-align: right;
+	margin-right: 50px;
+}
+.search__input {
+	border: none;
+	border-bottom: 1px solid black;
+	&:focus {
+		outline: none;
+	}
+}

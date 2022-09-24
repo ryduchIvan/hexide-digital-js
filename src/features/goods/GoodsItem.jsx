@@ -4,11 +4,11 @@ import 'react-toastify/dist/ReactToastify.css'
 //CSS
 import "./goods.scss";
 //Instrumets
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 //Actions
 import {addToCart} from "../cart/cart-slice";
 function GoodsItem(props) {
-	const {id, title, price, description, category, image, rating} = props;
+	const {id, title, price, description, image, gridsFormat} = props;
 	const dispatch = useDispatch();
 	const correctTitle = title.slice(0, 18);
 
@@ -22,7 +22,7 @@ function GoodsItem(props) {
 		dispatch(addToCart(infoAboutItem))
 	}
 	return(
-		<div className="row__item">
+		<div className={gridsFormat === 4 ? "row__item row__item_smal" : "row__item row__item_big"}>
 			<ToastContainer />
 			<img className="item__img" src={image} alt="item img"></img>
 			<div className="item__title">
