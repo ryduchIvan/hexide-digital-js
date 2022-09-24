@@ -1,0 +1,114 @@
+@font-face {
+	font-family: "Josefin-l";
+	src: url(./assets/fonts/JosefinSans-Light.ttf);
+}
+@font-face {
+	font-family: "Josefin-m";
+	src: url(./assets/fonts/JosefinSans-Medium.ttf);
+}
+@font-face {
+	font-family: "Josefin-sb";
+	src: url(./assets/fonts/JosefinSans-SemiBold.ttf);
+}
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+.header {
+	flex: 0 1 1;
+}
+.main {
+	flex: 1 1 0;
+}
+.footer {
+	flex: 0 0 1;
+}
+
+.container {
+	max-width: 1375px;
+	margin: 0px auto;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+//null css styles-------------------------------------
+
+/* Вказуємо box sizing */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Забираємо внутрішні відступи */
+ul[class],
+ol[class] {
+	padding: 0;
+}
+
+/* Забираємо зовнішні відступи */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Виставляємо основні налаштування за замовчуванням для body */
+body {
+	min-height: 100vh;
+	scroll-behavior: smooth;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+	list-style: none;
+}
+
+/* Елементи a скидаємо до дефолтних стилів */
+a {
+	text-decoration-skip-ink: auto;
+}
+
+/* Спрощуємо роботу із зображеннями */
+img {
+	max-width: 100%;
+	display: block;
+}
+
+/* Вказуємо зрозумілу періодичність у потоці даних у article*/
+article > * + * {
+	margin-top: 1em;
+}
+
+/* Наслідуємо шрифти для інпутів та кнопок */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Видаляємо всі анімації та переходи для людей, які вважай за краще їх не використовувати */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
