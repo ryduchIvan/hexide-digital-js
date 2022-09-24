@@ -1,5 +1,6 @@
 import Plus from "../../assets/img/plus-svgrepo-com.svg";
 import Minus from "../../assets/img/minus-svgrepo-com.svg";
+import Close from "../../assets/img/close-svgrepo-com (1).svg";
 //Instruments
 import { useDispatch} from "react-redux";
 //Action
@@ -11,6 +12,9 @@ function CartItem(props) {
 	const dispatch = useDispatch();
 	return(
 		<div className="cart__item">
+			<img className="cart__item_close" src={Close} alt="close_img" onClick={() =>{
+				dispatch(removeFromCart(id))
+			}}></img>
 			<div className="item__row">
 				<img className="row__img" src={image} alt="cart_img"></img>
 				<div className="item__info">

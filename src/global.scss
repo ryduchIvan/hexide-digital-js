@@ -10,8 +10,9 @@
 	font-family: "Josefin-sb";
 	src: url(./assets/fonts/JosefinSans-SemiBold.ttf);
 }
-.body {
+body {
 	font-family: "Josefin-m";
+	overflow-x: hidden;
 }
 .wrapper {
 	display: flex;

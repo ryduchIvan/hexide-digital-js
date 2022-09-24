@@ -19,9 +19,8 @@ function Header(params) {
 			setIsCart(true)
 		}
 	}
-	console.log(items);
 	return(
-		<header className="header ">
+		<header className="header">
 			<div className="header__container container">
 			<div className="container__row">
 				<img src={ShopLogo} alt="" className="row__img" />

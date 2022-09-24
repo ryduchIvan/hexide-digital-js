@@ -43,3 +43,6 @@ export const goodsReducer = goodsSlice.reducer;
 //Actions
 //Select
 export const selectGoods = store => store.goods;
+export const filtredGoods = (goods, filter = "") =>{
+	return goods.filter(good => good.category.includes(filter))
+}

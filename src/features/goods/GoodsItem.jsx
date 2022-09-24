@@ -1,3 +1,6 @@
+//toast
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 //CSS
 import "./goods.scss";
 //Instrumets
@@ -15,16 +18,17 @@ function GoodsItem(props) {
 		price,
 		image
 	}
-
+	const addToBag = () =>{
+		dispatch(addToCart(infoAboutItem))
+	}
 	return(
 		<div className="row__item">
+			<ToastContainer />
 			<img className="item__img" src={image} alt="item img"></img>
 			<div className="item__title">
 			{title === correctTitle ? <p>{title}</p> : <p>{correctTitle}...</p>}
 			</div>
-			<button className="item__btn" onClick={() =>{
-				dispatch(addToCart(infoAboutItem))
-			}}>
+			<button className="item__btn" onClick={addToBag}>
 				Add to cart
 			</button>
 			<div className="item__price">

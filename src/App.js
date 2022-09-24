@@ -13,7 +13,9 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<Homapage/>}/>
-        <Route path="/goods" element={<GoodsList/>} />
+        <Route path="/goods" element={<GoodsList/>} >
+          <Route path=":category" element={<GoodsList/>}/>
+        </Route>
       </Routes>
       <Footer/>
   </div>
