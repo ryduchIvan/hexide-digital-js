@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 //Actions
-import {loadGoods} from "./goods-slice";
+import {loadGoods, setCurrentGoods} from "./goods-slice";
 //Select
 import {selectGoods} from "./goods-slice";
 import { filtredGoods } from "./goods-slice";
@@ -12,21 +12,20 @@ import { selectSearch } from "../search/search-slice";
 import {GoodsItem} from "./GoodsItem";
 import {Sidebar} from "./Sidebar";
 import { Search } from "../search/Search.jsx";
-function GoodsList() {
-	const [page, setPage] = useState(1);
-	const [pageQty, setPageQty] = useState(0);
+import { PaginationNumber } from "./PaginationsNumber";
+function GoodsList(props) {
 	const [grid , setGrid] = useState(4);
-	const {category} = useParams();//get url
+	const {category, numberOfPage = 1} = useParams();//get url
 	const dispatch = useDispatch();
-	const {status, list, error} = useSelector(selectGoods);//get goods object
+	const {status, list, error, currentGoods, amountGoodsOnPage} = useSelector(selectGoods);//get goods object
 	const search = useSelector(selectSearch)//get search from store
-	const filterList = filtredGoods(list, category, search);//create a filtered list,
+	const filteredList = filtredGoods(list, category, search);//create a filtered list,
 	// the first parameter is the goods,
 	// the second category of goods
 	// the third is search from input
 	useEffect(()=>{//get a list of products
 		dispatch(loadGoods());
-	}, [page]);
+	}, []);
 	const setDoubleGrid = () =>{
 	setGrid(2)
 	}
@@ -35,7 +34,9 @@ function GoodsList() {
 	} //Functions for handle grid`s format 
 
 	//Pagination
-
+	const lastGoodsIndex = numberOfPage * amountGoodsOnPage;
+	const firstGoodsIndex = lastGoodsIndex - amountGoodsOnPage;
+	const paginationGoods = filteredList.slice(firstGoodsIndex, lastGoodsIndex);
 	return(
 		<main className="main container">
 			<Search/>
@@ -61,10 +62,14 @@ function GoodsList() {
 					status === "rejected" && <h1>{error}</h1>
 				}
 				{
-					status === "fuilfilled" && filterList.map((good) => <GoodsItem key={good.id} {...good} gridsFormat={grid}/>)
+					status === "fuilfilled" && paginationGoods.map((good) => <GoodsItem key={good.id} {...good} gridsFormat={grid}/>)
 				}
 				</div>
 			</div>
+			{/*<button onClick={() =>{
+				dispatch(setCurrentGoods(2))
+			}}>btn</button>*/}
+			<PaginationNumber amountGoodsOnPage={amountGoodsOnPage} totalAmountGoods = {filteredList.length} />
 		</main>
 	)
 }

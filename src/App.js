@@ -14,9 +14,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Homapage/>}/>
         <Route path="/goods" element={<GoodsList/>} >
-          <Route path=":category" element={<GoodsList/>}>
-              <Route path=":category/:page" element={<GoodsList/>}/>
+          <Route path="/goods/:category" element={<GoodsList/>}>
           </Route>
+          <Route path="/goods/path/:numberOfPage" element={<GoodsList/>}/>
         </Route>
       </Routes>
       <Footer/>

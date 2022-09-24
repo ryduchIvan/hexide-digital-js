@@ -82,3 +82,18 @@
 	font-family: "Josefin-sb";
 	font-size: 22px;
 }
+.pagination__list {
+	display: flex;
+	justify-content: center;
+}
+.pagination__link {
+	display: block;
+	color: black;
+	font-size: 30px;
+	margin-left: 30px;
+	cursor: pointer;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}

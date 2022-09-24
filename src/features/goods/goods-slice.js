@@ -15,13 +15,19 @@ export const loadGoods = createAsyncThunk(
 const initialState = {
 	status:"idle", 
 	list: [], 
-	error: null
+	error: null,
+	currentGoods: 1,
+	amountGoodsOnPage: 10
 }
 
 const goodsSlice = createSlice({
 	name: "@@goods",
 	initialState: initialState,
-	reducers: {},
+	reducers: {
+		setCurrentGoods: (state, action) =>{
+			state.currentGoods = action.payload;
+		}
+	},
 	extraReducers: (builder) =>{
 		builder.addCase(loadGoods.pending, (state) =>{
 			state.status = "loading";
@@ -41,6 +47,7 @@ const goodsSlice = createSlice({
 //Reducer
 export const goodsReducer = goodsSlice.reducer;
 //Actions
+export const {setCurrentGoods} = goodsSlice.actions;
 //Select
 export const selectGoods = store => store.goods;
 export const filtredGoods = (goods, filter = "", search) =>{
