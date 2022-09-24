@@ -1,0 +1,85 @@
+.cart__list {
+	width: 100%;
+	background-color: white;
+	border-radius: 40px;
+	position: absolute;
+	top: 50px;
+	right: -1000px;
+	transition: 0.3s ease all;
+	padding: 10px 20px;
+	box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.75);
+	max-height: 700px;
+	overflow: auto;
+}
+.show {
+	transition: 0.3s ease all;
+	right: 0%;
+}
+.item__close {
+	width: 30px;
+	position: absolute;
+	top: 10px;
+	right: 30px;
+	cursor: pointer;
+}
+.cart__title {
+	font-family: "Josefin-m";
+	text-align: center;
+	border-bottom: 1px solid rgb(142, 142, 142);
+}
+.empty__img {
+	opacity: 0.6;
+	margin: 20px auto;
+	width: 300px;
+}
+.empty__title {
+	font-family: "Josefin-sb";
+	font-size: 24px;
+	border-top: 1px solid rgb(142, 142, 142);
+	padding-top: 15px;
+	text-align: center;
+}
+.cart__item {
+	border-bottom: 1px solid rgb(142, 142, 142);
+	padding-bottom: 15px;
+	padding-top: 15px;
+}
+.item__row {
+	display: flex;
+}
+.row__img {
+	width: 120px;
+}
+.item__info {
+	margin-left: 15px;
+}
+.info__title {
+	font-size: 18px;
+}
+.info__price {
+	font-family: "Josefin-sb";
+	margin-top: 10px;
+	font-size: 22px;
+	span {
+		font-family: "Josefin-l";
+	}
+}
+.price__quintity {
+	margin-top: 5px;
+}
+.info__btn {
+	display: flex;
+	img {
+		width: 25px;
+		margin-right: 10px;
+		cursor: pointer;
+	}
+}
+.total__price {
+	font-size: 24px;
+	text-align: center;
+	padding: 10px 0px;
+	span {
+		font-family: "Josefin-sb";
+	}
+}

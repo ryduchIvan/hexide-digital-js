@@ -1,0 +1,45 @@
+.main {
+	margin-top: 100px;
+	display: flex;
+}
+.main__filtet {
+	width: 200px;
+	border: 1px solid blue;
+	margin-right: 10px;
+}
+.main__row {
+	max-width: 1100px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.row__item {
+	flex: 0 1 23%;
+	margin-bottom: 20px;
+}
+.item__img {
+	height: 335px;
+}
+.item__title {
+	margin-top: 13px;
+	font-family: "Josefin-m";
+	font-size: 20px;
+}
+.item__btn {
+	display: block;
+	margin: 10px auto;
+	cursor: pointer;
+	border: none;
+	background-color: black;
+	border-radius: 20px;
+	color: whitesmoke;
+	padding: 10px 15px;
+	font-family: "Josefin-sb";
+	&:hover {
+		background-color: silver;
+	}
+}
+.item__price {
+	font-family: "Josefin-sb";
+	font-size: 22px;
+}

@@ -2,10 +2,13 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
 export const loadGoods = createAsyncThunk(
 	"@@goods/load-goods",
-	async() =>{
-		const response = await fetch("https://fakestoreapi.com/products");
-		const data = await response.json();
-		return data;
+	async(_, {rejectWithValue, extra: axios}) =>{
+		try {
+			const response = await axios.get("https://fakestoreapi.com/products");
+			return response;
+		} catch (error) {
+			return rejectWithValue("Something went wrong. Please reload cite!")
+		}
 	}
 );
 
@@ -29,8 +32,8 @@ const goodsSlice = createSlice({
 			state.error = action.payload;
 		})
 		builder.addCase(loadGoods.fulfilled, (state, action) =>{
-			state.status = "loading";
-			state.list = action.payload;
+			state.status = "fuilfilled";
+			state.list = action.payload.data;
 		})
 	}
 })
