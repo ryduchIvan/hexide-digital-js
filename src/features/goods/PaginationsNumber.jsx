@@ -8,7 +8,7 @@ import {setCurrentGoods} from "../goods/goods-slice";
 function PaginationNumber(props) {
 	const dispatch = useDispatch();
 	const pageNumber = [];
-	const {amountGoodsOnPage, totalAmountGoods} = props;
+	const {amountGoodsOnPage, totalAmountGoods, category} = props;
 	for(let i =0; i < totalAmountGoods/amountGoodsOnPage; i++){
 		pageNumber.push(i);
 	}
@@ -19,7 +19,9 @@ function PaginationNumber(props) {
 			<li  key={number} onClick={() =>{
 				dispatch(setCurrentGoods(number+1))
 			}}>
-				<Link className="pagination__link" to={`/goods/path/${number+1}`}>{number+1}</Link>
+				{
+					category ? <Link className="pagination__link" to={`/goods/${category}/path/${number+1}`}>{number+1}</Link>  : <Link className="pagination__link" to={`/goods/path/${number+1}`}>{number+1}</Link>   
+				}
 			</li>)
 		}
 		</ul>

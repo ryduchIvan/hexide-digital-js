@@ -16,8 +16,6 @@ const initialState = {
 	status:"idle", 
 	list: [], 
 	error: null,
-	currentGoods: 1,
-	amountGoodsOnPage: 10
 }
 
 const goodsSlice = createSlice({

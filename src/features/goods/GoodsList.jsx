@@ -15,9 +15,11 @@ import { Search } from "../search/Search.jsx";
 import { PaginationNumber } from "./PaginationsNumber";
 function GoodsList(props) {
 	const [grid , setGrid] = useState(4);
+	const [amountGoodsOnPage, setAmountGoodsOnPage] = useState(4);
 	const {category, numberOfPage = 1} = useParams();//get url
+	console.log(category, numberOfPage);
 	const dispatch = useDispatch();
-	const {status, list, error, currentGoods, amountGoodsOnPage} = useSelector(selectGoods);//get goods object
+	const {status, list, error} = useSelector(selectGoods);//get goods object
 	const search = useSelector(selectSearch)//get search from store
 	const filteredList = filtredGoods(list, category, search);//create a filtered list,
 	// the first parameter is the goods,
@@ -25,14 +27,13 @@ function GoodsList(props) {
 	// the third is search from input
 	useEffect(()=>{//get a list of products
 		dispatch(loadGoods());
-	}, []);
+	}, [numberOfPage]);
 	const setDoubleGrid = () =>{
 	setGrid(2)
 	}
 	const setFourRowGrid = () =>{
 	setGrid(4)
 	} //Functions for handle grid`s format 
-
 	//Pagination
 	const lastGoodsIndex = numberOfPage * amountGoodsOnPage;
 	const firstGoodsIndex = lastGoodsIndex - amountGoodsOnPage;
@@ -66,10 +67,7 @@ function GoodsList(props) {
 				}
 				</div>
 			</div>
-			{/*<button onClick={() =>{
-				dispatch(setCurrentGoods(2))
-			}}>btn</button>*/}
-			<PaginationNumber amountGoodsOnPage={amountGoodsOnPage} totalAmountGoods = {filteredList.length} />
+			<PaginationNumber amountGoodsOnPage={amountGoodsOnPage} totalAmountGoods = {filteredList.length} category={category} />
 		</main>
 	)
 }
