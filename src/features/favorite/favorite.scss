@@ -1,0 +1,125 @@
+.header__favorite {
+	margin-left: 30px;
+}
+.header__favorite_img {
+	width: 40px;
+	cursor: pointer;
+}
+.favorite__list {
+	width: 500px;
+	background-color: white;
+	border-radius: 40px;
+	position: absolute;
+	top: 100px;
+	left: -100%;
+	transition: 0.3s ease all;
+	padding: 10px 0px 0px 0px;
+	box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.75);
+	max-height: 500px;
+	overflow: auto;
+}
+.show-favorite {
+	transition: 0.3s ease all;
+	left: 0%;
+}
+.favorite__title_main {
+	text-align: center;
+	border-bottom: 1px solid black;
+}
+.favorite__close {
+	width: 50px;
+	transition: all 0.3s ease;
+	&:hover {
+		transition: all 0.3s ease;
+		transform: scale(1.3);
+	}
+}
+.favorite__empty {
+	text-align: center;
+}
+
+.favorite__empty_text {
+	font-size: 24px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: rgb(74, 73, 73);
+}
+
+.favorite__close {
+	width: 30px;
+	position: absolute;
+	top: 10px;
+	right: 30px;
+	cursor: pointer;
+	transition: 0.3s all ease;
+	&:hover {
+		transition: 0.3s all ease;
+		transform: scale(1.3);
+	}
+}
+.favorite__title {
+	font-family: "Josefin-m";
+	text-align: center;
+	padding-left: 15px;
+	padding-right: 15px;
+	h1 {
+		border-bottom: 1px solid rgb(142, 142, 142);
+	}
+}
+.favorite_empty {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.favorite_empty__img {
+	opacity: 0.6;
+	margin: 20px auto;
+	width: 300px;
+}
+.favorite_empty__title {
+	font-family: "Josefin-sb";
+	font-size: 24px;
+	border-top: 1px solid rgb(142, 142, 142);
+	padding-top: 15px;
+	text-align: center;
+}
+.favorite__content {
+	padding: 5px 15px;
+}
+.favorite__item {
+	border-bottom: 1px solid rgb(142, 142, 142);
+	padding-bottom: 15px;
+	padding-top: 30px;
+	position: relative;
+	&:last-child {
+		border: none;
+	}
+}
+.favorite__item_close {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	right: 10px;
+	cursor: pointer;
+	transition: 0.3s all ease;
+	&:hover {
+		transition: 0.3s all ease;
+		transform: scale(1.3);
+	}
+}
+.favorite__row {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+}
+.favorite__img {
+	width: 120px;
+	height: 135px;
+}
+.favorite__info {
+	margin-left: 15px;
+	color: black;
+}
+.favorite__title {
+	font-size: 16px;
+	text-align: left;
+}

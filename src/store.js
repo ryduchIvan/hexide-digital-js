@@ -15,6 +15,7 @@ import storage from 'redux-persist/lib/storage'
 import {goodsReducer} from "./features/goods/goods-slice";
 import {cartReducer} from "./features/cart/cart-slice";
 import {searchReducer} from "./features/search/search-slice";
+import {favoriteReducer} from "./features/favorite/favorite-slice";
 
 const persistConfig = {
 	key: 'root',
@@ -25,13 +26,14 @@ const persistConfig = {
 const rootReducer = combineReducers({
 	goods: goodsReducer,
 	cart: cartReducer,
-	search: searchReducer
+	search: searchReducer,
+	favorite: favoriteReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-	reducer: persistedReducer,
+	reducer: rootReducer,
 	devTools: true,
 	middleware: (getDefaultMiddlawar) =>
 	 getDefaultMiddlawar({

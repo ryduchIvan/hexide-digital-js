@@ -5,7 +5,7 @@ import "./cart.scss";
 import {CartItem} from "./CartItem";
 //Select
 function CartList(props) {
-	const {status, items, toggleCart} = props;
+	const {status, items, closeCart} = props;
 
 	const createTotalPrice = () =>{
 		let totalPrice = 0;
@@ -16,8 +16,8 @@ function CartList(props) {
 		return Math.ceil(totalPrice);
 	}
 	return(
-		<div className={status ? `cart__list show` : `cart__list`}>
-			<img className="cart__close" src={CloseImg} alt="close_img" onClick={toggleCart}></img>
+		<div className={status ? `cart__list show-cart` : `cart__list`}>
+			<img className="cart__close" src={CloseImg} alt="close_img" onClick={closeCart}/>
 			<div className="cart__title">
 				<h1>Cart</h1>
 			</div>

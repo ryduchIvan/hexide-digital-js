@@ -1,3 +1,4 @@
+import Heart from "../../assets/img/heart.svg";
 //toast
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -9,6 +10,7 @@ import { useState } from 'react';
 //Actions
 import {addToCart} from "../cart/cart-slice";
 import { Popup } from './popup/Popup';
+import {addToFavorite} from "../favorite/favorite-slice";
 function GoodsItem(props) {
 	const [isPopup, setIsPopup] = useState(false);
 	const {id, title, price, description, image, gridsFormat} = props;
@@ -22,7 +24,7 @@ function GoodsItem(props) {
 		price,
 		image,
 		description
-	}//I created an object of information about the product in order to further reflect it in the cart and popup
+	}//I created an object of information about the product in order to further reflect it in the cart , popup and favorite items
 	const addToBag = () =>{
 		dispatch(addToCart(infoAboutItem))
 	}
@@ -31,6 +33,9 @@ function GoodsItem(props) {
 	}
 	const closePopup = () =>{
 		setIsPopup(false);
+	}
+	const addToFavoriteItem = () =>{
+		dispatch(addToFavorite(infoAboutItem))
 	}
 	return(
 		<>
@@ -49,6 +54,7 @@ function GoodsItem(props) {
 				</button>
 				<div className="item__price">
 				{price} usd
+					<img src={Heart} alt="heart" className="item__favorite_img" onClick={addToFavoriteItem} />
 				</div>
 			</div>
 			 	<Popup infoAboutItem={infoAboutItem} closePopup={closePopup} isPopup={isPopup}/>

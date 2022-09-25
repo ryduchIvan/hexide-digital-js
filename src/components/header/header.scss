@@ -19,6 +19,10 @@
 	width: 120px;
 	height: 135px;
 }
+.header__options {
+	display: flex;
+	align-items: center;
+}
 .header__cart {
 	width: 500px;
 	position: relative;
@@ -30,6 +34,18 @@
 	margin: auto 0px auto auto;
 }
 .header__quantity {
+	background-color: darkred;
+	position: absolute;
+	top: -10px;
+	left: -15px;
+	color: white;
+	padding: 3px 10px;
+	border-radius: 50%;
+}
+.header__favorite {
+	position: relative;
+}
+.favorite__quantity {
 	background-color: darkred;
 	position: absolute;
 	top: -10px;
