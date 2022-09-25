@@ -20,7 +20,8 @@ function PaginationNumber(props) {
 				dispatch(setCurrentGoods(number+1))
 			}}>
 				{
-					category ? <Link className="pagination__link" to={`/goods/${category}/path/${number+1}`}>{number+1}</Link>  : <Link className="pagination__link" to={`/goods/path/${number+1}`}>{number+1}</Link>   
+					category ? <Link className="pagination__link" to={`/goods/${category}/path/${number+1}`}>{number+1}</Link>
+					  : <Link className="pagination__link" to={`/goods/path/${number+1}`}>{number+1}</Link>   
 				}
 			</li>)
 		}

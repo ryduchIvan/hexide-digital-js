@@ -15,9 +15,8 @@ import { Search } from "../search/Search.jsx";
 import { PaginationNumber } from "./PaginationsNumber";
 function GoodsList(props) {
 	const [grid , setGrid] = useState(4);
-	const [amountGoodsOnPage, setAmountGoodsOnPage] = useState(4);
+	const [amountGoodsOnPage, setAmountGoodsOnPage] = useState(8);
 	const {category, numberOfPage = 1} = useParams();//get url
-	console.log(category, numberOfPage);
 	const dispatch = useDispatch();
 	const {status, list, error} = useSelector(selectGoods);//get goods object
 	const search = useSelector(selectSearch)//get search from store
