@@ -17,24 +17,26 @@ function CartList(props) {
 	}
 	return(
 		<div className={status ? `cart__list show` : `cart__list`}>
-			<img className="item__close" src={CloseImg} alt="close_img" onClick={toggleCart}></img>
-			<h1 className="cart__title">Cart</h1>
+			<img className="cart__close" src={CloseImg} alt="close_img" onClick={toggleCart}></img>
+			<div className="cart__title">
+				<h1>Cart</h1>
+			</div>
 			{
-				!items.length && <div className="list__empty">
-					<img src="https://kilogramm.com.ua/image/cart_none.png" alt="empty img" className="empty__img" />
-					<div className="empty__title">
+				!items.length && <div className="cart_empty">
+					<img src="https://kilogramm.com.ua/image/cart_none.png" alt="empty img" className="cart_empty__img" />
+					<div className="cart_empty__title">
 						There is nothing in the basket, so it is sad
 					</div>
 				</div>
 			}
+			<div className="cart__content">
 			{
 				items.map(item => <CartItem key={item.id} {...item}/>)//push product information
 			}
+			</div>
 			{
-				items.length > 0 && <div className="list__total">
-					<div className="total__price">
+				items.length > 0 && <div className="cart__total__price">
 						Total price: <span>{createTotalPrice()}</span> usd
-					</div>
 			</div>
 			}
 		</div>

@@ -1,12 +1,11 @@
 .main__filter {
 	width: 200px;
-	border: 1px solid blue;
 	margin-right: 10px;
 }
 .filter__list {
 	margin-top: 20px;
 }
-.list__link {
+.filter__link {
 	display: block;
 	text-align: center;
 	margin-bottom: 25px;
@@ -16,5 +15,15 @@
 	&:hover {
 		text-decoration: underline;
 		color: rgb(67, 67, 67);
+	}
+}
+@media (max-width: 900px) {
+	.main__filter {
+		width: 100%;
+	}
+	.filter__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
 	}
 }

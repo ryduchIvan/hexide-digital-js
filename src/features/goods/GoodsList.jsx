@@ -3,17 +3,17 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 //Actions
-import {loadGoods, setCurrentGoods} from "./goods-slice";
+import {loadGoods} from "./goods-slice";
 //Select
 import {selectGoods} from "./goods-slice";
 import { filtredGoods } from "./goods-slice";
 import { selectSearch } from "../search/search-slice";
 //Components
 import {GoodsItem} from "./GoodsItem";
-import {Sidebar} from "./Sidebar";
+import {Sidebar} from "../sidebar/Sidebar";
 import { Search } from "../search/Search.jsx";
 import { PaginationNumber } from "./PaginationsNumber";
-function GoodsList(props) {
+function GoodsList() {
 	const [grid , setGrid] = useState(4);
 	const [amountGoodsOnPage, setAmountGoodsOnPage] = useState(8);
 	const {category, numberOfPage = 1} = useParams();//get url
@@ -26,7 +26,7 @@ function GoodsList(props) {
 	// the third is search from input
 	useEffect(()=>{//get a list of products
 		dispatch(loadGoods());
-	}, [numberOfPage]);
+	}, [numberOfPage, dispatch]);
 	const setDoubleGrid = () =>{
 	setGrid(2)
 	}
@@ -38,23 +38,24 @@ function GoodsList(props) {
 	const firstGoodsIndex = lastGoodsIndex - amountGoodsOnPage;
 	const paginationGoods = filteredList.slice(firstGoodsIndex, lastGoodsIndex);
 	return(
-		<main className="main container">
+		<main className="main">
+			<div className="main__container container">
 			<Search/>
-			<div className="container__grid">
-				<div className="grid__two grid_item" onClick={setDoubleGrid}>
-					<div className="two__item"></div>
-					<div className="two__item"></div>
+			<div className="main__grid">
+				<div className="main__grid_item" onClick={setDoubleGrid}>
+					<div className="grid__two__item"></div>
+					<div className="grid__two__item"></div>
 				</div>
-				<div className="grid__four grid_item" onClick={setFourRowGrid}>
-					<div className="four__item"></div>
-					<div className="four__item"></div>
-					<div className="four__item"></div>
-					<div className="four__item"></div>
+				<div className="grid__four main__grid_item" onClick={setFourRowGrid}>
+					<div className="main__four__item"></div>
+					<div className="main__four__item"></div>
+					<div className="main__four__item"></div>
+					<div className="main__four__item"></div>
 				</div>
 			</div>
-			<div className="container__conetent">
+			<div className="main__row">
 				<Sidebar/>
-				<div className="content__row">
+				<div className="main__catalog">
 				{
 					status === "loading" && <h1>Loading...</h1>
 				}
@@ -67,6 +68,7 @@ function GoodsList(props) {
 				</div>
 			</div>
 			<PaginationNumber amountGoodsOnPage={amountGoodsOnPage} totalAmountGoods = {filteredList.length} category={category} />
+			</div>
 		</main>
 	)
 }

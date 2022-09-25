@@ -13,8 +13,8 @@ function Search() {
 		dispatch(addToSearch(event.target.value));
 	}, 250), [])
 	return(
-		<div className="row__search">
-			<input className="search__input" type="text" placeholder="Search" defaultValue={search} onChange={onChangeValue}/>
+		<div className="main__search">
+			<input className="main__search__input" type="text" placeholder="Search" defaultValue={search} onChange={onChangeValue}/>
 		</div>
 	)//add value from input to store
 }

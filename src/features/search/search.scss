@@ -1,11 +1,17 @@
-.row__search {
+.main__search {
 	text-align: right;
-	margin-right: 50px;
+	margin-right: 80px;
 }
-.search__input {
+.main__search__input {
 	border: none;
 	border-bottom: 1px solid black;
 	&:focus {
 		outline: none;
+	}
+}
+
+@media (max-width: 1345px) {
+	.main__search {
+		margin-right: 0px;
 	}
 }

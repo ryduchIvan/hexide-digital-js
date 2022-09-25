@@ -1,9 +1,11 @@
 .main {
 	margin-top: 150px;
 	width: 100%;
+}
+.container {
 	position: relative;
 }
-.container__grid {
+.main__grid {
 	width: 60px;
 	height: 30px;
 	margin: 0px auto;
@@ -11,9 +13,9 @@
 	justify-content: space-between;
 	position: absolute;
 	top: 0px;
-	right: 0px;
+	right: 30px;
 }
-.grid_item {
+.main__grid_item {
 	width: 25px;
 	height: 100%;
 	display: flex;
@@ -21,43 +23,48 @@
 	justify-content: space-between;
 	cursor: pointer;
 }
-.two__item {
+.grid__two__item {
 	flex: 0 1 40%;
 	height: 100%;
 	border: 2px solid black;
 }
-.four__item {
+.main__four__item {
 	flex: 0 1 45%;
 	height: 45%;
 	border: 2px solid black;
 	margin-bottom: 3px;
 }
 
-.container__conetent {
+.main__row {
 	display: flex;
 	width: 100%;
+	justify-content: space-between;
 }
-.content__row {
+.main__catalog {
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	min-height: 1100px;
+	margin-top: 20px;
 }
-.row__item {
+.catalog__item {
 	border-radius: 15px;
 	flex: 0 1 24%;
 	padding: 20px;
 	margin-left: 11px;
+	max-height: 520px;
+	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.55);
 }
-.row__item_big {
+.catalog__item_big {
 	flex: 0 1 49%;
 	text-align: center;
 }
 .item__img {
 	height: 335px;
-	width: 234px;
+	width: 100%;
 	margin: 0px auto;
+	cursor: pointer;
 }
 .item__title {
 	margin-top: 13px;
@@ -65,19 +72,8 @@
 	font-size: 18px;
 }
 .item__btn {
-	display: block;
-	margin: 10px auto;
-	cursor: pointer;
-	border: none;
-	background-color: black;
-	border-radius: 20px;
-	color: whitesmoke;
-	padding: 10px 15px;
-	font-family: "Josefin-sb";
-	&:hover {
-		background-color: silver;
-	}
 }
+
 .item__price {
 	font-family: "Josefin-sb";
 	font-size: 22px;
@@ -95,5 +91,25 @@
 	text-decoration: none;
 	&:hover {
 		text-decoration: underline;
+	}
+}
+
+@media (max-width: 1345px) {
+	.catalog__item {
+		flex: 0 1 32%;
+		margin-bottom: 10px;
+	}
+	.main__grid {
+		display: none;
+	}
+}
+@media (max-width: 1060px) {
+	.catalog__item {
+		flex: 0 1 48%;
+	}
+}
+@media (max-width: 900px) {
+	.main__row {
+		flex-direction: column;
 	}
 }

@@ -7,7 +7,7 @@ import { useDispatch} from "react-redux";
 import {addQuantity, minusQuantity, removeFromCart} from "./cart-slice";
 
 function CartItem(props) {
-	const {id, image, price, quintity, title} = props;//accept product information
+	const {id, image, price, quintity, correctTitle, title} = props;//accept product information
 
 	const dispatch = useDispatch();
 	return(
@@ -15,19 +15,19 @@ function CartItem(props) {
 			<img className="cart__item_close" src={Close} alt="close_img" onClick={() =>{
 				dispatch(removeFromCart(id))
 			}}></img>
-			<div className="item__row">
-				<img className="row__img" src={image} alt="cart_img"></img>
-				<div className="item__info">
-				<div className="info__title">
-					{title}
+			<div className="cart__row">
+				<img className="cart__img" src={image} alt="cart_img"></img>
+				<div className="cart__info">
+				<div className="cart__title">
+				{title === correctTitle ? <p>{title}</p> : <p>{correctTitle}...</p>}
 				</div>
-				<div className="info__price">
+				<div className="cart__price">
 					{Math.ceil(price * quintity)} <span>usd</span>
-					<div className="price__quintity">
+					<div className="cart__quintity">
 						<span>amount:</span>{quintity}
 					</div>
 				</div>
-				<div className="info__btn">
+				<div className="cart__btn">
 						<img src={Plus} alt="plus" onClick={() =>{
 							dispatch(addQuantity(id))
 						}}/>

@@ -22,12 +22,12 @@ function Header(params) {
 	return(
 		<header className="header">
 			<div className="header__container container">
-			<div className="container__row">
-				<img src={ShopLogo} alt="" className="row__img" />
-				<div className="row__cart" >
-					<div className="cart__logo">
+			<div className="header__row">
+				<img src={ShopLogo} alt="" className="header__img" />
+				<div className="header__cart" >
+					<div className="header__logo">
 						<img src={ShopingCart} alt="" onClick={toggleCart}/>
-						<span className="cart__quantity">{items.length}</span>
+						<span className="header__quantity">{items.length}</span>
 					</div>
 					<CartList status={isCart} items={items} toggleCart={toggleCart}/>
 				</div>
