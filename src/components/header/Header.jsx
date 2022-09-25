@@ -9,10 +9,10 @@ import {CartList} from "../../features/cart/CartList";
 import {selectCart} from "../../features/cart/cart-slice";
 //Instruments
 import { useState } from "react";
-import {useSelector, useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
 import { FavoriteList } from "../../features/favorite/FavoriteList";
 import { selectFavorite } from "../../features/favorite/favorite-slice";
-function Header(params) {
+function Header() {
 	const [isCart, setIsCart] = useState(false);
 	const [isFavorite, setIsFavorite] = useState(false);
 	const {items} = useSelector(selectCart);//got a list of products in the cart

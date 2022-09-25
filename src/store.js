@@ -33,7 +33,7 @@ const rootReducer = combineReducers({
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-	reducer: rootReducer,
+	reducer: persistedReducer,
 	devTools: true,
 	middleware: (getDefaultMiddlawar) =>
 	 getDefaultMiddlawar({

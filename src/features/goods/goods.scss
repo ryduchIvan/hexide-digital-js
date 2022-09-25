@@ -45,8 +45,9 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	min-height: 1100px;
+	min-height: 550px;
 	margin-top: 20px;
+	margin-bottom: 20px;
 }
 .catalog__item {
 	border-radius: 15px;
@@ -60,12 +61,13 @@
 .catalog__item_big {
 	flex: 0 1 49%;
 	text-align: center;
+	margin: 0px auto;
 	margin-bottom: 15px;
 }
 .item__img {
 	height: 335px;
 	width: 100%;
-	max-width: 320px;
+	max-width: 300px;
 	margin: 0px auto;
 	cursor: pointer;
 }
@@ -77,12 +79,13 @@
 
 .item__price {
 	font-family: "Josefin-sb";
-	font-size: 22px;
+	font-size: 24px;
 	display: flex;
 	justify-content: space-between;
 }
 .item__favorite_img {
 	cursor: pointer;
+	width: 40px;
 }
 .item__img_box:hover {
 	cursor: pointer;

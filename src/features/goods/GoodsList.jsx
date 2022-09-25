@@ -2,6 +2,7 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 //Actions
 import {loadGoods} from "./goods-slice";
 //Select
@@ -15,8 +16,9 @@ import { Search } from "../search/Search.jsx";
 import { PaginationNumber } from "./PaginationsNumber";
 import { Preload } from "../../components/Preload/Preload";
 function GoodsList() {
-	const [grid , setGrid] = useState(4);
+	//const [grid , setGrid] = useState(4);
 	const [amountGoodsOnPage, setAmountGoodsOnPage] = useState(8);
+	const [gridFormat, setGridFormat] = useState(4);
 	const {category, numberOfPage = 1} = useParams();//get url
 	const dispatch = useDispatch();
 	const {status, list, error} = useSelector(selectGoods);//get goods object
@@ -28,26 +30,28 @@ function GoodsList() {
 	useEffect(()=>{//get a list of products
 		dispatch(loadGoods());
 	}, [numberOfPage, dispatch]);
-	const setDoubleGrid = () =>{
-	setGrid(2)
-	}
-	const setFourRowGrid = () =>{
-	setGrid(4)
-	} //Functions for handle grid`s format 
+	 //Functions for handle grid`s format 
 	//Pagination
 	const lastGoodsIndex = numberOfPage * amountGoodsOnPage;
 	const firstGoodsIndex = lastGoodsIndex - amountGoodsOnPage;
 	const paginationGoods = filteredList.slice(firstGoodsIndex, lastGoodsIndex);
+
+	const setFourWayOfGrid = () =>{
+		setGridFormat(4)
+	}
+	const setTwoWayOfGrid = () =>{
+		setGridFormat(2);
+	}
 	return(
 		<main className="main">
 			<div className="main__container container">
 			<Search/>
 			<div className="main__grid">
-				<div className="main__grid_item" onClick={setDoubleGrid}>
+				<div className="main__grid_item" onClick={setTwoWayOfGrid} >
 					<div className="grid__two__item"></div>
 					<div className="grid__two__item"></div>
 				</div>
-				<div className="grid__four main__grid_item" onClick={setFourRowGrid}>
+				<div className="grid__four main__grid_item" onClick={setFourWayOfGrid}>
 					<div className="main__four__item"></div>
 					<div className="main__four__item"></div>
 					<div className="main__four__item"></div>
@@ -64,7 +68,7 @@ function GoodsList() {
 					status === "rejected" && <h1>{error}</h1>
 				}
 				{
-					status === "fuilfilled" && paginationGoods.map((good) => <GoodsItem key={good.id} {...good} gridsFormat={grid}/>)
+					status === "fuilfilled" && paginationGoods.map((good) => <GoodsItem key={good.id} {...good} gridFormat={gridFormat} />)
 				}
 				</div>
 			</div>

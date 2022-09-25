@@ -1,8 +1,6 @@
-import {useSearchParams} from "react-router-dom";
 //instrumens
 import {Link} from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {useParams} from "react-router-dom";
 //Actions
 import {setCurrentGoods} from "../goods/goods-slice";
 function PaginationNumber(props) {

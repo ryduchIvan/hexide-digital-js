@@ -1,19 +1,17 @@
 import Heart from "../../assets/img/heart.svg";
-//toast
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
 //CSS
 import "./goods.scss";
 //Instrumets
 import {useDispatch} from "react-redux";
 import { useState } from 'react';
+import {useParams} from "react-router-dom";
 //Actions
 import {addToCart} from "../cart/cart-slice";
 import { Popup } from './popup/Popup';
 import {addToFavorite} from "../favorite/favorite-slice";
 function GoodsItem(props) {
 	const [isPopup, setIsPopup] = useState(false);
-	const {id, title, price, description, image, gridsFormat} = props;
+	const {id, title, price, description, image, gridFormat} = props;
 	const dispatch = useDispatch();
 	const correctTitle = title.slice(0, 18);
 
@@ -39,7 +37,7 @@ function GoodsItem(props) {
 	}
 	return(
 		<>
-			<div className={gridsFormat === 4 ? "catalog__item " : "catalog__item catalog__item_big"}>
+			<div className={gridFormat === 4 ? "catalog__item" : "catalog__item catalog__item_big"}>
 				<div className="item__img_box">
 				<img className="item__img" src={image} alt="item img" />
 				<div className="item__opened__popup" onClick={openPopup}>
@@ -57,7 +55,9 @@ function GoodsItem(props) {
 					<img src={Heart} alt="heart" className="item__favorite_img" onClick={addToFavoriteItem} />
 				</div>
 			</div>
-			 	<Popup infoAboutItem={infoAboutItem} closePopup={closePopup} isPopup={isPopup}/>
+			{
+				isPopup && <Popup infoAboutItem={infoAboutItem} closePopup={closePopup}/> 
+			}
 		 </>//I passed inforamtion about item , function which close popup, and popup`s status for css class
 	)
 }

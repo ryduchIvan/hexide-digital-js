@@ -5,14 +5,14 @@ import {useDispatch} from "react-redux";
 //Actions
 import {addToCart} from "../../cart/cart-slice";
 function Popup(props) {
-	const {infoAboutItem, closePopup, isPopup} = props;
+	const {infoAboutItem, closePopup} = props;
 	const {title,price,image,description} = infoAboutItem;
 	const dispatch = useDispatch();
 	const addToBag = () =>{
 		dispatch(addToCart(infoAboutItem))
 	}
 		return(
-			<div className={`${isPopup ? "popup open-popup" : "popup"}`} onClick={(event) =>{
+			<div className="popup" onClick={(event) =>{
 				if (event.target.classList.contains("popup")) {
 					closePopup();
 				}

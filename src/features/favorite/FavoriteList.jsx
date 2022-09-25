@@ -3,13 +3,10 @@ import CloseImg from "../../assets/img/close-svgrepo-com.svg";
 //CSS
 import  "./favorite.scss";
 //Select
-import {selectFavorite} from "./favorite-slice";
 //Instruments
-import {useSelector} from "react-redux";
 import { FavoriteItem } from "./FavoriteItem";
 function FavoriteList(props) {
 	const {favorite, status, closeFavorite} = props;
-	console.log(favorite);
 	return(
 		<div className={`${status ? "favorite__list show-favorite" : "favorite__list"}`}>
 			<h1 className="favorite__title_main">Favorite Item</h1>
