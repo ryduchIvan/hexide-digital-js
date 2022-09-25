@@ -35,7 +35,12 @@ function GoodsItem(props) {
 	return(
 		<>
 			<div className={gridsFormat === 4 ? "catalog__item " : "catalog__item catalog__item_big"}>
-				<img className="item__img" src={image} alt="item img" onClick={openPopup}/>
+				<div className="item__img_box">
+				<img className="item__img" src={image} alt="item img" />
+				<div className="item__opened__popup" onClick={openPopup}>
+					<button className='item__btn__popup'>Watch more</button>
+				</div>
+				</div>
 				<div className="item__title">
 				{title === correctTitle ? <p>{title}</p> : <p>{correctTitle}...</p>}
 				</div>

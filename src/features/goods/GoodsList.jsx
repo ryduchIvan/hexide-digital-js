@@ -13,6 +13,7 @@ import {GoodsItem} from "./GoodsItem";
 import {Sidebar} from "../sidebar/Sidebar";
 import { Search } from "../search/Search.jsx";
 import { PaginationNumber } from "./PaginationsNumber";
+import { Preload } from "../../components/Preload/Preload";
 function GoodsList() {
 	const [grid , setGrid] = useState(4);
 	const [amountGoodsOnPage, setAmountGoodsOnPage] = useState(8);
@@ -57,7 +58,7 @@ function GoodsList() {
 				<Sidebar/>
 				<div className="main__catalog">
 				{
-					status === "loading" && <h1>Loading...</h1>
+					status === "loading" && <Preload/>
 				}
 				{
 					status === "rejected" && <h1>{error}</h1>
