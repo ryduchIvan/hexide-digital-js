@@ -2,7 +2,7 @@
 import "./homepage.scss";
 import {Link} from "react-router-dom";
 
-function Homapage(params) {
+function Homepage(params) {
 	return(
 		<main className="main">
 			<div className="main__container container">
@@ -13,4 +13,4 @@ function Homapage(params) {
 	)
 }
 
-export {Homapage};
+export {Homepage};
